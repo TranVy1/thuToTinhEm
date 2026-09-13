@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gửi Thảo ❤️ | Lời Thổ Lộ Từ Trái Tim Anh Vỹ</title>
+
+    <meta name="description" content="Anh Vỹ có một bức thư tay và điều chân thành nhất muốn gửi riêng cho Thảo... Chạm để mở thư nhé!">
+    <meta property="og:title" content="Gửi Thảo ❤️ | Lời Thổ Lộ Từ Trái Tim Anh Vỹ">
+    <meta property="og:description" content="Chạm để mở bức thư tay và lắng nghe điều anh Vỹ muốn nói cùng Thảo...">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1200&auto=format&fit=crop&q=80">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <div id="click-hearts-container"></div>
+
+    <div id="music-player" class="music-widget hidden">
+        <div class="vinyl-disc" id="vinyl-btn" title="Bật/Tắt Nhạc Tình Yêu">
+            <div class="vinyl-grooves"></div>
+            <div class="vinyl-center">
+                <i class="fa-solid fa-heart vinyl-heart"></i>
+            </div>
+        </div>
+        <div class="music-info">
+            <span class="music-title" id="music-title">Giai điệu dành riêng cho em...</span>
+            <div class="sound-wave" id="sound-wave">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+    <audio id="bg-music" loop preload="auto"></audio>
+
+    <div id="envelope-screen" class="envelope-wrapper">
+        <div class="envelope-ambient-glow"></div>
+        <div class="envelope-card">
+            <div class="envelope-intro">
+                <div class="envelope-badge">
+                    <i class="fa-solid fa-sparkles"></i> Dành Riêng Cho Em ✨
+                </div>
+                <h2 id="env-title">Gửi người anh thầm thương</h2>
+                <p id="env-subtitle">Có một bức thư tay và điều chân thành nhất dành riêng cho em...</p>
+            </div>
+
+            <div class="envelope-3d" id="envelope-box">
+                <div class="envelope-back"></div>
+                <div class="envelope-letter-peek">
+                    <div class="letter-peek-lines"></div>
+                    <div class="letter-peek-lines short"></div>
+                    <i class="fa-solid fa-heart letter-peek-heart"></i>
+                </div>
+                <div class="envelope-left"></div>
+                <div class="envelope-right"></div>
+                <div class="envelope-bottom"></div>
+                <div class="envelope-flap" id="envelope-flap"></div>
+
+                <div class="wax-seal" id="wax-seal-btn" role="button" tabindex="0">
+                    <div class="wax-seal-inner">
+                        <i class="fa-solid fa-heart seal-heart"></i>
+                    </div>
+                    <div class="wax-seal-ring"></div>
+                </div>
+            </div>
+
+            <button class="btn-open-envelope" id="btn-open-env">
+                <span class="btn-sparkle">✨</span>
+                <span id="env-btn-text">Chạm Để Mở Thư 💌</span>
+                <span class="btn-sparkle">✨</span>
+            </button>
+            <p class="envelope-hint"><i class="fa-solid fa-volume-high"></i> Hãy bật âm lượng điện thoại để nghe trọn vẹn giai điệu lãng mạn nhé</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="main-container hidden-initial">
+
+        <header class="hero-section">
+            <div class="hero-badge">
+                <i class="fa-solid fa-heart-pulse"></i> Lời Thổ Lộ Từ Trái Tim
+            </div>
+            <h1 class="hero-title">
+                Gửi <span class="highlight-name" id="hero-crush-name">Thảo</span>,
+            </h1>
+            <p class="hero-subtext">
+                "Thế giới rộng lớn bao la là thế, nhưng điều đẹp đẽ nhất với anh chính là được gặp em."
+            </p>
+
+            <div class="floating-petals-decor">
+                <span>✨</span><span>💖</span><span>🌸</span><span>💫</span>
+            </div>
+        </header>
+
+        <section class="universe-section">
+            <div class="section-header">
+                <span class="section-badge"><i class="fa-solid fa-compass"></i> Nhật Ký Cảm Xúc</span>
+                <h2 class="section-title">Những Lần Trái Tim Anh Rung Động</h2>
+                <p class="section-subtitle">Từng khoảnh khắc về em đều được anh gìn giữ như một điều vô giá</p>
+            </div>
+
+            <div class="universe-grid" id="universe-container">
+
+            </div>
+        </section>
+
+        <section class="letter-section">
+            <div class="letter-paper" id="letter-paper">
+                <div class="letter-pin"><i class="fa-solid fa-heart"></i></div>
+                <div class="letter-header">
+                    <h3 class="letter-heading">Những Lời Từ Tận Đáy Lòng 💌</h3>
+                    <span class="letter-date" id="letter-date-display">Dành riêng cho Thảo</span>
+                </div>
+
+                <div class="letter-body">
+
+                    <div class="letter-start-prompt" id="letter-start-prompt">
+                        <div class="quill-pulse-icon">✍️</div>
+                        <p class="prompt-text">Thảo ơi, chạm vào đây để mở từng dòng thư anh viết riêng cho em nhé...</p>
+                        <button class="btn-start-typewriter" id="btn-start-typewriter">
+                            <i class="fa-solid fa-feather-pointed"></i> Chạm Để Đọc Thư 💌
+                        </button>
+                    </div>
+
+                    <div id="typewriter-text" class="typewriter-content"></div>
+                    <span class="typewriter-cursor hidden" id="typewriter-cursor">|</span>
+                </div>
+
+                <div class="letter-footer hidden" id="letter-footer">
+                    <p class="letter-signature-note">Người luôn hướng về Thảo,</p>
+                    <p class="letter-signature-name" id="letter-sender-name">Anh Vỹ</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reasons-section">
+            <div class="section-header">
+                <span class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> You Are So Special</span>
+                <h2 class="section-title">Vì Sao Anh Lại Thích Em Đến Vậy?</h2>
+                <p class="section-subtitle">Chạm vào từng trái tim bên dưới để lắng nghe câu trả lời nhé!</p>
+            </div>
+
+            <div class="reasons-grid" id="reasons-container">
+
+            </div>
+        </section>
+
+        <section class="proposal-section glass-card" id="proposal-box">
+            <div class="proposal-beating-heart">
+                <i class="fa-solid fa-heart"></i>
+                <div class="heart-pulse-ring"></div>
+            </div>
+
+            <span class="proposal-pretitle">Và điều quan trọng nhất anh muốn hỏi em là...</span>
+            <h2 class="proposal-title" id="proposal-question">Em có đồng ý làm người yêu của anh không? ❤️</h2>
+
+            <p class="proposal-desc">
+                Hãy cho anh cơ hội được nắm tay em, được che chở và cùng em bước tiếp đoạn đường phía trước nhé!
+            </p>
+
+            <div class="proposal-actions" id="proposal-actions-wrap">
+
+                <button class="btn-proposal btn-yes" id="btn-yes">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                    <span id="btn-yes-text">Dạ Em Đồng Ý! 🥰</span>
+                </button>
+
+                <div class="runaway-container" id="runaway-container">
+                    <div class="runaway-bubble hidden" id="runaway-bubble">Ơ kìa! 😜</div>
+                    <button class="btn-proposal btn-no" id="btn-no">
+                        <i class="fa-solid fa-face-smile-wink"></i>
+                        <span id="btn-no-text">Để em suy nghĩ đã...</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Trang web được tạo nên từ tất cả sự chân thành và tình yêu dành cho em ✨</p>
+            <p class="footer-sub">Mãi yêu thương & trân trọng em ❤️</p>
+        </footer>
+
+    </main>
+
+    <div id="celebration-modal" class="modal-overlay hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <div class="modal-celebration-card glass-card">
+                <div class="modal-badge" id="modal-badge">🎉 CHÚNG MÌNH CHÍNH THỨC LÀ CỦA NHAU 🎉</div>
+
+                <div class="fireworks-icon">
+                    <span class="bounce-anim">💍</span>
+                    <span class="bounce-anim delay-1">💖</span>
+                    <span class="bounce-anim delay-2">✨</span>
+                </div>
+
+                <h2 class="modal-title" id="modal-title">CẢM ƠN EM ĐÃ ĐỒNG Ý! ❤️</h2>
+                <p class="modal-message" id="modal-message">
+                    Khoảnh khắc này sẽ là khởi đầu cho một hành trình ngập tràn hạnh phúc của hai đứa mình!
+                </p>
+
+                <div class="love-certificate" id="love-certificate">
+                    <div class="cert-border-corner top-left"></div>
+                    <div class="cert-border-corner top-right"></div>
+                    <div class="cert-border-corner bottom-left"></div>
+                    <div class="cert-border-corner bottom-right"></div>
+
+                    <div class="cert-header">
+                        <span class="cert-pretitle">CERTIFICATE OF ETERNAL LOVE</span>
+                        <h3 class="cert-title" id="cert-title">BẢN CAM KẾT TÌNH YÊU TRỌN ĐỜI</h3>
+                    </div>
+
+                    <div class="cert-body">
+                        <p class="cert-grant-text">Chứng nhận rằng từ giây phút này trở đi, trái tim anh chính thức thuộc về:</p>
+                        <h4 class="cert-receiver" id="cert-receiver">Thảo Của Anh Vỹ 💖</h4>
+
+                        <div class="cert-promises" id="cert-promises">
+
+                        </div>
+                    </div>
+
+                    <div class="cert-footer">
+                        <div class="cert-sign">
+                            <span class="sign-label">NGƯỜI CAM KẾT</span>
+                            <span class="sign-name" id="cert-sender-name">Vỹ</span>
+                        </div>
+                        <div class="cert-gold-seal">
+                            <div class="gold-seal-ring">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>FOREVER</span>
+                            </div>
+                        </div>
+                        <div class="cert-date-wrap">
+                            <span class="sign-label">NGÀY HIỆU LỰC</span>
+                            <span class="sign-date" id="cert-date">14/09/2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-modal-action btn-save-cert" id="btn-save-cert">
+                        <i class="fa-solid fa-download"></i> Lưu Bản Cam Kết Kỷ Niệm 📸
+                    </button>
+                    <button class="btn-modal-action btn-fireworks-again" id="btn-fireworks-again">
+                        <i class="fa-solid fa-champagne-glasses"></i> Bắn Thêm Pháo Hoa 🎆
+                    </button>
+                    <button class="btn-modal-action btn-close-modal" id="btn-close-modal">
+                        <i class="fa-solid fa-heart"></i> Đọc Lại Bức Thư
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

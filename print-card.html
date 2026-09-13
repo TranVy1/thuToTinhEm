@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Thiệp Gài Bó Hoa 14/9 💐 | Kèm Mã QR Website Tỏ Tình</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        :root {
+            --primary-rose: #ff477e;
+            --wine-red: #800f2f;
+            --gold: #d4af37;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #fdf8f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+
+        .control-panel {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 520px;
+            width: 100%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .control-panel h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--wine-red);
+            margin-bottom: 8px;
+        }
+
+        .control-panel p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 18px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1.5px solid #e0c8ce;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary-rose);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-rose), #ff7096);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 71, 126, 0.4);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #2b1029, #4a154b);
+        }
+
+        /* KHU VỰC THIỆP ĐÍNH KÈM HOA */
+        .card-preview-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .flower-card {
+            width: 9.5cm;
+            height: 13.5cm;
+            background: linear-gradient(145deg, #fffcf9, #fff2f5);
+            border: 2px solid #ecd1b8;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .card-inner-border {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px dashed #d8a8b8;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .card-header-badge {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9c5168;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.55rem;
+            color: var(--wine-red);
+            margin: 6px 0 4px;
+        }
+
+        .card-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.45rem;
+            color: var(--primary-rose);
+        }
+
+        .card-qr-box {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            border: 1px solid #f0dde3;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #qrcode img, #qrcode canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .card-scan-text {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #4a154b;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-message {
+            font-size: 0.82rem;
+            color: #555;
+            line-height: 1.5;
+            font-style: italic;
+            max-width: 90%;
+        }
+
+        .card-footer {
+            font-size: 0.78rem;
+            color: #888;
+            font-weight: 600;
+        }
+
+        .card-date {
+            color: var(--primary-rose);
+            font-weight: 700;
+        }
+
+        /* ĐỊNH DẠNG KHI IN RA GIẤY */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .control-panel, .no-print {
+                display: none !important;
+            }
+            .card-preview-wrap {
+                margin: 0;
+            }
+            .flower-card {
+                box-shadow: none;
+                border: 1.5px solid #d4af37;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="control-panel no-print">
+        <h2>💐 Tạo Thiệp Gài Bó Hoa 14/9</h2>
+        <p>Nhập đường link website tỏ tình của bạn vào ô bên dưới, mã QR sẽ tự động cập nhật lên tấm thiệp để bạn in ra và gài vào bó hoa!</p>
+
+        <div class="input-group">
+            <input type="text" id="website-url" placeholder="Nhập đường link website (ví dụ: https://tang-em-14-9.vercel.app)" value="https://tang-em-14-9.vercel.app">
+            <button class="btn" id="btn-generate">Cập Nhật QR</button>
+        </div>
+
+        <button class="btn btn-print" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> In Tấm Thiệp Này (Hoặc Lưu PDF)
+        </button>
+    </div>
+
+    <div class="card-preview-wrap">
+        <div class="flower-card" id="printable-card">
+            <div class="card-inner-border"></div>
+
+            <div class="card-top">
+                <span class="card-header-badge">A SPECIAL SURPRISE</span>
+                <h3 class="card-title">Gửi Thảo ❤️</h3>
+                <p class="card-subtitle">Món Quà Từ Trái Tim Anh Vỹ</p>
+            </div>
+
+            <div class="card-qr-box">
+                <div id="qrcode"></div>
+                <div class="card-scan-text">
+                    <i class="fa-solid fa-camera"></i> Quét mã để mở thư 💌
+                </div>
+            </div>
+
+            <p class="card-message">
+                "Thế giới rộng lớn bao la là thế, nhưng điều đẹp đẽ nhất với anh chính là được gặp Thảo."
+            </p>
+
+            <div class="card-footer">
+                Hẹn gặp em ngày <span class="card-date">14 Tháng 9 💐</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        let qrcodeObj = null;
+
+        function generateQR(url) {
+            const qrContainer = document.getElementById("qrcode");
+            qrContainer.innerHTML = "";
+            qrcodeObj = new QRCode(qrContainer, {
+                text: url || "https://tang-em-14-9.vercel.app",
+                width: 145,
+                height: 145,
+                colorDark : "#2b1029",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputUrl = document.getElementById("website-url");
+            const btnGen = document.getElementById("btn-generate");
+
+            // Tự động lấy tên crush nếu có config
+            if (typeof CONFIG !== 'undefined' && CONFIG.crushName) {
+                const titleEl = document.querySelector(".card-subtitle");
+                if (titleEl) titleEl.textContent = `Dành riêng cho ${CONFIG.crushName} ✨`;
+            }
+
+            generateQR(inputUrl.value);
+
+            btnGen.addEventListener("click", () => {
+                const url = inputUrl.value.trim();
+                if (url) generateQR(url);
+            });
+        });
+    </script>
+</body>
+</html>
