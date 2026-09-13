@@ -229,7 +229,7 @@
         <p>Nhập đường link website tỏ tình của bạn vào ô bên dưới, mã QR sẽ tự động cập nhật lên tấm thiệp để bạn in ra và gài vào bó hoa!</p>
 
         <div class="input-group">
-            <input type="text" id="website-url" placeholder="Nhập đường link website (ví dụ: https://tang-em-14-9.vercel.app)" value="https://tang-em-14-9.vercel.app">
+            <input type="text" id="website-url" placeholder="Nhập đường link website" value="https://thu-to-tinh-em.vercel.app/">
             <button class="btn" id="btn-generate">Cập Nhật QR</button>
         </div>
 
@@ -273,7 +273,7 @@
             const qrContainer = document.getElementById("qrcode");
             qrContainer.innerHTML = "";
             qrcodeObj = new QRCode(qrContainer, {
-                text: url || "https://tang-em-14-9.vercel.app",
+                text: url || "https://thu-to-tinh-em.vercel.app/",
                 width: 145,
                 height: 145,
                 colorDark : "#2b1029",
